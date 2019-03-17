@@ -1,0 +1,36 @@
+doctype html
+head
+  title Dcard
+  meta(charset='utf-8')
+  script(src='https://code.highcharts.com/highcharts.js')
+  script(src='https://code.highcharts.com/modules/exporting.js')
+  script(src='https://code.highcharts.com/modules/export-data.js')
+#container(style='min-width: 310px; height: 400px; margin: 0 auto')
+script.
+  Highcharts.chart('container', {
+  title: {
+  text: 'Dcard熱門發文時間統計'
+  },
+  xAxis: {
+  tickInterval: 1,
+  type: '點',
+  title: {
+            text: '時'
+        }
+  },
+  yAxis: {
+  type: '篇',
+  minorTickInterval: 0,
+  title: {
+            text: '篇'
+        }
+  },
+  tooltip: {
+  headerFormat: '<b>{series.name}</b><br />',
+  pointFormat: '時間 = {point.x}, 篇數 = {point.y}'
+  },
+  series: [{
+  data: [#{data_array}],
+  pointStart: 0
+  }]
+  });
