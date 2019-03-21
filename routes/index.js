@@ -63,9 +63,11 @@ function databasecheck(hour) {
   });
 }
 
+
+
 var scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 1 1 * * *',()=>{
-       request({
+    schedule.scheduleJob('0 30 22 * * *',()=>{
+      request({
     url: "https://www.dcard.tw/f",
     method: "GET"
   }, function(err,res,body) {
@@ -78,14 +80,20 @@ var scheduleCronstyle = ()=>{
 	    for(var i=0;i<update_time.length;i++) {
 	      dates_arr.push(($(update_time[i]).text().toString().split(" "))[1]); 
 	      // console.log((dates_arr[i].toString().split(" "))[1]);
-	      // console.log((dates_arr[i].toString().split(":"))[0]);  
-	     databasecheck((dates_arr[i].toString().split(":"))[0]);
+	      // console.log((dates_arr[i].toString().split(":"))[0]);
+	      var real=parseInt((dates_arr[i].toString().split(":"))[0])+8;
+	      if(real>=24){
+	      	real=real-24;
+	      }
+	      console.log(real);
+	     databasecheck(real);
 	    }
 	   
 		
     }
     	
   });
+
  
 
     }); 
@@ -94,7 +102,32 @@ var scheduleCronstyle = ()=>{
 scheduleCronstyle();
 
   
- 
+  // request({
+  //   url: "https://www.dcard.tw/f",
+  //   method: "GET"
+  // }, function(err,res,body) {
+  //   if(!err){
+  //   	// console.log(body);
+  //   	var $ = cheerio.load(body);
+		// var update_time = $(info.class);
+
+		// // console.log(update_time);
+	 //    for(var i=0;i<update_time.length;i++) {
+	 //      dates_arr.push(($(update_time[i]).text().toString().split(" "))[1]); 
+	 //      // console.log((dates_arr[i].toString().split(" "))[1]);
+	 //      // console.log((dates_arr[i].toString().split(":"))[0]);
+	 //      var real=parseInt((dates_arr[i].toString().split(":"))[0])+8;
+	 //      if(real>=24){
+	 //      	real=real-24;
+	 //      }
+	 //      console.log(real);
+	 //     databasecheck(real);
+	 //    }
+	   
+		
+  //   }
+    	
+  // });
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

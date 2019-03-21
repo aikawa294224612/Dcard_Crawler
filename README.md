@@ -1,5 +1,7 @@
 # Dcard 爬蟲-熱門發文時間統計
 
+![enter image description here](https://lh3.googleusercontent.com/qzJkUDs3PHWLzpC649Fm4r4-xO734xCoGvLP1liPptTm9jj88ab0xSgfLu3RoedzLAtepGvfRHZk)
+
 ### request
 
     request({
@@ -13,8 +15,8 @@
 
      $ = cheerio.load(blogHTMLString);
       titles = $("li.item h2");
-	 var result = [];
-	  for(i=0;i<titles.length;i++) { result.push($(titles[i]).text()); }
+   var result = [];
+    for(i=0;i<titles.length;i++) { result.push($(titles[i]).text()); }
 
 
 ### node-schedule
@@ -48,6 +50,7 @@
     2016年的1月1日1点1分30秒触发 ：'30 1 1 1 2016 *'
     
     每周1的1点1分30秒触发 ：'30 1 1 * * 1'
+
 
 
 [資料視覺化D3.js的範例](https://blog.twtnn.com/2015/06/d3js.html)
