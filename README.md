@@ -1,7 +1,15 @@
 # Dcard 爬蟲-熱門發文時間統計
+探討Dcard上熱門的文章是否與發文時間有關(仍有其他影響因素，如主題)，抓取並統計一個月熱門文章之發文時間時段，統計分析結果呈現16點是熱門文章高峰，與當初還未收集資料前的想法有所出入
+未來想法: 透過AI預測出熱門文章的影響因素，並能自動產出高機率能上熱門的文章
+![enter image description here](https://i.imgur.com/8qFn6ER.jpg)
 
-![enter image description here](https://lh3.googleusercontent.com/z5ieReht9JKIXejjdbiG9GQBZivBdrrX3LyNMkLqG9WpWiNUc-glRQSWRgoBJ6meVOfks3TWxr3p)
+## Info.
+### How to run?
 
+    npm install --save-dev nodemon    
+    SET DEBUG=app:* & npm run devstart
+
+## Note
 ### request
 
     request({
@@ -52,7 +60,7 @@
     每周1的1点1分30秒触发 ：'30 1 1 * * 1'
 
 
-
+## References
 [資料視覺化D3.js的範例](https://blog.twtnn.com/2015/06/d3js.html)
 
 [Simple Line Graph using SVG and d3.js](http://bl.ocks.org/benjchristensen/2579599)
